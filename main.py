@@ -3,19 +3,15 @@ import params
 import helper_funcs
 from pathlib import Path
 
-def set_page_config():
+def main():
+    # Page configuration
     st.set_page_config(
-        page_title = "Traffic Signs Detection using YOLOv8",
-        page_icon= ":no_bicycles:",
-        layout= "wide",
-        initial_sidebar_state= "expanded"
+        page_title="Parasitic Egg Detection using YOLOv8",
+        page_icon="logo.png",
+        layout="wide"
     )
 
-def main():
-    set_page_config()
-    st.title("Traffic Signs Detection using YOLOv8")
-    st.markdown("---")
-
+    # Custom CSS to hide Streamlit's default elements
     hide_st_style = """
                 <style>
                 #MainMenu {visibility: hidden;}
@@ -25,31 +21,76 @@ def main():
                 """
     st.markdown(hide_st_style, unsafe_allow_html=True)
 
-    with st.sidebar:
-        st.header("Model Configurations")
-        conf = float(st.slider("Confidence Level", 0, 100, 40)) / 100
-        st.markdown("---")
+    # Title and header
+    st.markdown(
+    """
+    <style>
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .title img {
+            width: 100px;  # Adjust logo size as needed
+            height: 100px;
+            margin-right: 10px;  # Space between logo and title
+        }
+    </style>
+    <div class="title">
+        <img src="https://images.pexels.com/photos/29834764/pexels-photo-29834764.png?auto=compress&cs=tinysrgb&w=600&lazy=load"/>
+        <h1 style="color: #d1bcce;">Parasitic Object Detection in Human Stool Using YOLOv8</h1>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-    model_path = Path(params.MODEL_DIR)
+    st.markdown("---")
 
-    try:
-        model = helper_funcs.load_model(model_path)
-    except Exception as e:
-        st.error("Unable to load model.")
-        st.error(e)
+    # Load YOLO model
+    model_path = Path(params.MODEL_DIR)  # Update with your model path
+    model = helper_funcs.load_model(model_path)
 
-    st.sidebar.header("Image/Video Configurations")
-    rb_source = st.sidebar.radio("Select Source", params.SOURCES_LIST)
-    source_img = None
-
-    if rb_source == params.IMAGE:
-        helper_funcs.detect_objects_in_image(conf,model)
-
-    elif rb_source == params.VIDEO:
-        helper_funcs.detect_objects_in_video(conf, model)
-
+    if model:
+        helper_funcs.detect_objects_in_image(model)
     else:
-        st.error("Please select a valid source!")
+        st.error("Model could not be loaded. Check the path or file.")
 
-if __name__ == '__main__':
+    st.markdown("---")
+    st.markdown(
+        """
+        <style>
+            .about-card {
+                text-align: center;  /* Center text inside the card */
+            }
+            .about-card h2 {
+                color: #a6b0b9;  /* Muted text color */
+            }
+            .about-card p {
+                font-size: 16px;  /* Adjust text size */
+                line-height: 1.6;  /* Improve readability */
+                color: #a6b0b9;  /* Dark text for contrast */
+            }
+            .about-card a {
+                color: #007bff;  /* Link color */
+                text-decoration: none;
+            }
+            .about-card a:hover {
+                text-decoration: underline;  /* Underline on hover */
+            }
+        </style>
+        <div class="about-card">
+            <h2>About</h2>
+            <p>This application utilizes the YOLOv8 model to detect parasitic objects in human stool samples, providing a faster and more efficient way to assist healthcare professionals in diagnosis.</p>
+            <h3>Disclaimer:</h3>
+            <p>This tool is for educational and research purposes only and should not be used for clinical diagnosis. Always consult a healthcare professional for accurate results.</p>
+            <h3>Contact Information:</h3>
+            <p>For inquiries or feedback, please email:</p>
+            <p>Rojelyn Laguinan, <a href="mailto:rlaguinan01491@usep.edu.ph">rlaguinan01491@usep.edu.ph</a>
+            <p>Remart Maynantay, <a href="mailto:rsmaynantay01498@usep.edu.ph">rsmaynantay01498@usep.edu.ph</a>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+if __name__ == "__main__":
     main()
