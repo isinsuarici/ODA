@@ -80,7 +80,44 @@ def main():
         </style>
         <div class="about-card">
             <h2>About</h2>
-            <p>This application utilizes the YOLOv8 model to detect parasitic objects in human stool samples, providing a faster and more efficient way to assist healthcare professionals in diagnosis.</p>
+            <p>This application employs the YOLOv8 model to detect specific parasitic objects in human stool samples, offering a faster and more efficient tool to assist healthcare professionals in diagnosis.</p>
+            <p>The model is trained to detect 34 parasitic species, encompassing a wide range of protozoa and helminths, as detailed below:</p>
+            <h6>PROTOZOA</h6>
+                <p>1. Entamoeba histolytica (E. histolytica)</p>
+                <p>2. Entamoeba coli (E. coli)</p>
+                <p>3. Endolimax nana (E. nana)</p>
+                <p>4. Iodamoeba butschlii (I. butschlii)</p>
+                <p>5. Blastocystis spp.</p>
+                <p>6. Giardia duodenalis (G. duodenalis)</p>
+            <h6>HELMINTHS</h6>
+                <p>1. Ascaris lumbricoides fertilized egg (A. lumbricoides (Fertilized egg))</p>
+                <p>2. Ascaris lumbricoides unfertilized egg (A. lumbricoides (Unfertilized egg))</p>
+                <p>3. Ascaris lumbricoides decorticated egg (A. lumbricoides (Decorticated egg))</p>
+                <p>4. Enterobius vermicularis (E. vermicularis)</p>
+                <p>5. Trichuris trichiura (T. trichiura)</p>
+                <p>6. Hookworm</p>
+                <p>7. Strongyloides stercoralis (S. stercoralis)</p>
+                <p>8. Trichostrongylus orientalis (T. orientalis)</p>
+                <p>9. Toxocara spp.</p>
+                <p>10. Capillaria philippinensis (C. philippinensis)</p>
+                <p>11. Fasciolopsis buski (F. buski)</p>
+                <p>12. Echinostoma spp.</p>
+                <p>13. Haplorchis spp.</p>
+                <p>14. Gastrodiscoides hominis (G. hominis)</p>
+                <p>15. Schistosoma japonicum (S. japonicum)</p>
+                <p>16. Schistosoma mekongi (S. mekongi)</p>
+                <p>17. Schistosoma mansoni (S. mansoni)</p>
+                <p>18. Schistosoma haematobium (S. haematobium)</p>
+                <p>19. Opisthorchis viverrini (O. viverrini)</p>
+                <p>20. Eurytrema pancreaticum (E. pancreaticum)</p>
+                <p>21. Fasciola spp.</p>
+                <p>22. Paragonimus spp.</p>
+                <p>23. Taenia spp.</p>
+                <p>24. Hymenolepis nana (H. nana)</p>
+                <p>25. Hymenolepis diminuta (H. diminuta)</p>
+                <p>26. Dipylidium caninum (D. caninum)</p>
+                <p>27. Diphyllobothrium latum (D. latum)</p>
+                <p>28. Spirometra spp.</p>
             <h3>Disclaimer:</h3>
             <p>This tool is for educational and research purposes only and should not be used for clinical diagnosis. Always consult a healthcare professional for accurate results.</p>
             <h3>Contact Information:</h3>
